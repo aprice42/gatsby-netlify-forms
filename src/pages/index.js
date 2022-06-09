@@ -5,6 +5,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
+import Form from "../components/form";
 
 const links = [
   {
@@ -116,6 +117,26 @@ const IndexPage = () => (
         {i !== moreLinks.length - 1 && <> · </>}
       </React.Fragment>
     ))}
+    <form name="contact" method="POST" data-netlify="true">
+      <p>
+        <label>Your Name: <input type="text" name="name" /></label>
+      </p>
+      <p>
+        <label>Your Email: <input type="email" name="email" /></label>
+      </p>
+      <p>
+        <label>Your Role: <select name="role[]" multiple>
+          <option value="leader">Leader</option>
+          <option value="follower">Follower</option>
+        </select></label>
+      </p>
+      <p>
+        <label>Message: <textarea name="message"></textarea></label>
+      </p>
+      <p>
+        <button type="submit">Send</button>
+      </p>
+    </form>
   </Layout>
 )
 
